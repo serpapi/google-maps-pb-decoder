@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/google_maps_pb_decoder'
+
+if (pb_encoded_string = ARGV[-1])
+  output = GoogleMapsPbDecoder.decode(pb_encoded_string)
+  puts output.inspect
+else
+  puts "google_maps_pb_decoder #{GoogleMapsPbDecoder::VERSION}"
+  puts "Usage: google_maps_pb_decoder <pb_encoded_string>"
+end
