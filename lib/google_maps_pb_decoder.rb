@@ -35,7 +35,7 @@ module GoogleMapsPbDecoder
         curr = new_arr
       else
         if kind == 'b'                                    # Assuming these are boolean
-          curr << value == '1'
+          curr << (value == '1')
         elsif kind == 'd' || kind == 'f'                  # Float or double
           curr << value.to_f
         elsif kind == 'i' || kind == 'u' || kind == 'e'   # Integer, unsigned or enum as int
