@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "lib/google_maps_pb_decoder/version"
+$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
+require "google_maps_pb_decoder/version"
 
 Gem::Specification.new do |spec|
   spec.name = "google_maps_pb_decoder"
@@ -14,8 +15,11 @@ Gem::Specification.new do |spec|
   spec.license = "MIT"
   spec.required_ruby_version = ">= 1.9"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = spec.homepage
+  if spec.respond_to?(:metadata)
+    spec.metadata["homepage_uri"] = spec.homepage
+    spec.metadata["source_code_uri"] = spec.homepage
+  end
+
   spec.files  = Dir.glob("lib/**/*.rb")
   spec.bindir = "exe"
   spec.executables = ["google_maps_pb_decoder"]

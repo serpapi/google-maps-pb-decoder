@@ -15,7 +15,7 @@ module GoogleMapsPbDecoder
 
     parts.each do |e|
       match = e.match(/\d+([a-z])(.*)/)
-      if match&.size != 3
+      if match && match.size != 3
         raise InvalidParameterError.new
       end
 
