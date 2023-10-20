@@ -3,8 +3,6 @@
 require_relative "google_maps_pb_decoder/version"
 
 module GoogleMapsPbDecoder
-  class InvalidParameterError < StandardError; end
-
   # Original script: https://gist.github.com/jeteon/e71fa21c1feb48fe4b5eeec045229a0c
   def self.decode(str)
     parts = str.split('!').select { |s| s.size > 0 }
@@ -15,8 +13,8 @@ module GoogleMapsPbDecoder
 
     parts.each do |e|
       match = e.match(/\d+([a-z])(.*)/)
-      if match && match.size != 3
-        raise InvalidParameterError.new
+      if !match || match.size != 3
+        raise ArgumentError, "The argument is not a valid protobuf-encoded string"
       end
 
       kind = match[1]

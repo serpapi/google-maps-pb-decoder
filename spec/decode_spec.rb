@@ -56,4 +56,8 @@ describe GoogleMapsPbDecoder do
       []
     ])
   end
+
+  it 'raises error for invalid input' do
+    _{ GoogleMapsPbDecoder.decode('abc') }.must_raise ArgumentError
+  end
 end

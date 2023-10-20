@@ -3,8 +3,13 @@
 require_relative '../lib/google_maps_pb_decoder'
 
 if (pb_encoded_string = ARGV[-1])
-  output = GoogleMapsPbDecoder.decode(pb_encoded_string)
-  puts output.inspect
+  begin
+    output = GoogleMapsPbDecoder.decode(pb_encoded_string)
+    puts output.inspect
+  rescue => e
+    STDERR.puts "Error: #{e.message}"
+    exit 1
+  end
 else
   puts "google_maps_pb_decoder #{GoogleMapsPbDecoder::VERSION}"
   puts "Usage: google_maps_pb_decoder <pb_encoded_string>"
