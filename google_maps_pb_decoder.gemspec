@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Yicheng Zhou"]
   spec.email = ["zyc9012@gmail.com"]
 
-  spec.summary = "A Google Maps pb (protobuf) parameter decoder."
-  spec.description = "A Google Maps pb (protobuf) parameter decoder."
+  spec.summary = "Google Maps pb (protobuf) parameter decoder."
+  spec.description = "This gem decodes the protobuf parameters used in Google Maps into readable JSON for easy inspection and debugging."
   spec.homepage = "https://github.com/serpapi/google-maps-pb-decoder"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 1.9"
